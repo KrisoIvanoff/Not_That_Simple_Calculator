@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -111,9 +112,9 @@ namespace Kalkulator
         private void btnravno_Click(object sender, EventArgs e)
         {
             string result = "";
-            int ch1 = 0;
+            double ch1 = 0;
             int st = 0;
-            int ch2 = 0;
+            double ch2 = 0;
             result = chisla.Text;
             if (chisla.Text != null)
             {
@@ -122,10 +123,10 @@ namespace Kalkulator
                     st = chisla.Text.IndexOf("+");
                     result = chisla.Text.Replace("+", string.Empty);
                     if (String.Empty != result.Substring(0, st))
-                        ch1 = Convert.ToInt32(result.Substring(0, st));
+                        ch1 = Convert.ToDouble(result.Substring(0, st), CultureInfo.InvariantCulture);
                     if (String.Empty != result.Substring(st))
-                        ch2 = Convert.ToInt32(result.Substring(st));
-                    int res = ch1 + ch2;
+                        ch2 = Convert.ToDouble(result.Substring(st), CultureInfo.InvariantCulture);
+                    double res = ch1 + ch2;
                     chisla.Text = res.ToString();
                 }
                 else if (chisla.Text.Contains("-"))
@@ -133,10 +134,10 @@ namespace Kalkulator
                     st = chisla.Text.IndexOf("-");
                     result = chisla.Text.Replace("-", string.Empty);
                     if (String.Empty != result.Substring(0, st))
-                        ch1 = Convert.ToInt32(result.Substring(0, st));
+                        ch1 = Convert.ToDouble(result.Substring(0, st));
                     if (String.Empty != result.Substring(st))
-                        ch2 = Convert.ToInt32(result.Substring(st));
-                    int res = ch1 - ch2;
+                        ch2 = Convert.ToDouble(result.Substring(st));
+                    double res = ch1 - ch2;
                     chisla.Text = res.ToString();
                 }
                 else if (chisla.Text.Contains("*"))
@@ -144,10 +145,10 @@ namespace Kalkulator
                     st = chisla.Text.IndexOf("*");
                     result = chisla.Text.Replace("*", string.Empty);
                     if (String.Empty != result.Substring(0, st))
-                        ch1 = Convert.ToInt32(result.Substring(0, st));
+                        ch1 = Convert.ToDouble(result.Substring(0, st));
                     if (String.Empty != result.Substring(st))
-                        ch2 = Convert.ToInt32(result.Substring(st));
-                    int res = ch1 * ch2;
+                        ch2 = Convert.ToDouble(result.Substring(st));
+                    double res = ch1 * ch2;
                     chisla.Text = res.ToString();
 
                 }
@@ -156,10 +157,10 @@ namespace Kalkulator
                     st = chisla.Text.IndexOf("/");
                     result = chisla.Text.Replace("/", string.Empty);
                     if (String.Empty != result.Substring(0, st))
-                        ch1 = Convert.ToInt32(result.Substring(0, st));
+                        ch1 = Convert.ToDouble(result.Substring(0, st));
                     if (String.Empty != result.Substring(st))
-                        ch2 = Convert.ToInt32(result.Substring(st));
-                    int res = ch1 / ch2;
+                        ch2 = Convert.ToDouble(result.Substring(st));
+                    double res = ch1 / ch2;
                     chisla.Text = res.ToString();
                 }
             }
@@ -167,6 +168,11 @@ namespace Kalkulator
             {
                 MessageBox.Show("String empty");
             }
+        }
+
+        private void btnDot_Click(object sender, EventArgs e)
+        {
+            chisla.Text += ".";
         }
     }
 }
