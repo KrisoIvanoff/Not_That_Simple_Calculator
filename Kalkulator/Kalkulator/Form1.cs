@@ -111,49 +111,61 @@ namespace Kalkulator
         private void btnravno_Click(object sender, EventArgs e)
         {
             string result = "";
-            int ch1 = 0; int st = 0;
+            int ch1 = 0;
+            int st = 0;
             int ch2 = 0;
             result = chisla.Text;
             if (chisla.Text != null)
             {
-                Regex.Replace(result, @"^[a-zA-Z]+$", "");
-                    if (chisla.Text.Contains("+"))
-                    {
-                        st = chisla.Text.IndexOf("+");
-                        result = chisla.Text.Replace("+", string.Empty);
+                if (chisla.Text.Contains("+"))
+                {
+                    st = chisla.Text.IndexOf("+");
+                    result = chisla.Text.Replace("+", string.Empty);
+                    if (String.Empty != result.Substring(0, st))
                         ch1 = Convert.ToInt32(result.Substring(0, st));
+                    if (String.Empty != result.Substring(st))
                         ch2 = Convert.ToInt32(result.Substring(st));
-                        int res = ch1 + ch2;
-                        chisla.Text = res.ToString();
-                    }
-                    else if (chisla.Text.Contains("-"))
-                    {
-                        st = chisla.Text.IndexOf("-");
-                        result = chisla.Text.Replace("-", string.Empty);
+                    int res = ch1 + ch2;
+                    chisla.Text = res.ToString();
+                }
+                else if (chisla.Text.Contains("-"))
+                {
+                    st = chisla.Text.IndexOf("-");
+                    result = chisla.Text.Replace("-", string.Empty);
+                    if (String.Empty != result.Substring(0, st))
                         ch1 = Convert.ToInt32(result.Substring(0, st));
+                    if (String.Empty != result.Substring(st))
                         ch2 = Convert.ToInt32(result.Substring(st));
-                        int res = ch1 - ch2;
-                        chisla.Text = res.ToString();
-                    }
-                    else if (chisla.Text.Contains("*"))
-                    {
-                        st = chisla.Text.IndexOf("*");
-                        result = chisla.Text.Replace("*", string.Empty);
+                    int res = ch1 - ch2;
+                    chisla.Text = res.ToString();
+                }
+                else if (chisla.Text.Contains("*"))
+                {
+                    st = chisla.Text.IndexOf("*");
+                    result = chisla.Text.Replace("*", string.Empty);
+                    if (String.Empty != result.Substring(0, st))
                         ch1 = Convert.ToInt32(result.Substring(0, st));
+                    if (String.Empty != result.Substring(st))
                         ch2 = Convert.ToInt32(result.Substring(st));
-                        int res = ch1 * ch2;
-                        chisla.Text = res.ToString();
+                    int res = ch1 * ch2;
+                    chisla.Text = res.ToString();
 
-                    }
-                    else if (chisla.Text.Contains("/"))
-                    {
-                        st = chisla.Text.IndexOf("/");
-                        result = chisla.Text.Replace("/", string.Empty);
+                }
+                else if (chisla.Text.Contains("/"))
+                {
+                    st = chisla.Text.IndexOf("/");
+                    result = chisla.Text.Replace("/", string.Empty);
+                    if (String.Empty != result.Substring(0, st))
                         ch1 = Convert.ToInt32(result.Substring(0, st));
+                    if (String.Empty != result.Substring(st))
                         ch2 = Convert.ToInt32(result.Substring(st));
-                        int res = ch1 / ch2;
-                        chisla.Text = res.ToString();
-                    }
+                    int res = ch1 / ch2;
+                    chisla.Text = res.ToString();
+                }
+            }
+            else
+            {
+                MessageBox.Show("String empty");
             }
         }
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+8mzqpudtwXAH5CuVFMaZLjdd9m8ZQ0DIJf4/h9b5Ap3266lZ20t8c/k5ucyw+GuBU1nF6X5wD6SHQ8AdIG5kA==",
+  "dgSpecHash": "E0B+WYq8KpDvrUMtXYE1KZ0PHYKvMwvK88Vqhw58pjiliyZVcgiPVwFeey7HUJ7vqu0rHg16yf4vU7k4N1aTEA==",
   "success": true,
-  "projectFilePath": "D:\\Kalkulator\\Kalkulator\\Kalkulator.csproj",
+  "projectFilePath": "D:\\NotThatSimpleCalc\\Not_That_Simple_Calculator\\Kalkulator\\Kalkulator\\Kalkulator.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
